@@ -4,77 +4,100 @@
     ViewData["Title"] = "Products";
 }
 
-<div class="d-flex justify-content-between align-items-center mb-4">
+<div class="container py-4">
 
-    <h1>Products</h1>
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <div>
+            <h1 class="fw-bold mb-1">Products</h1>
+        </div>
 
-    <a asp-action="Create" class="btn btn-primary">
-        + Add Product
-    </a>
-
-</div>
-
-@if (!Model.Any())
-{
-    <div class="alert alert-info">
-        No products have been added yet.
+        <a asp-action="Create" class="btn btn-primary">
+            + Add Product
+        </a>
     </div>
-}
-else
-{
-    <table class="table table-bordered table-striped">
 
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Description</th>
-                <th>Price</th>
-                <th>Category</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-
-        <tbody>
+    @if (!Model.Any())
+    {
+        <div class="alert alert-info">
+            No products have been added yet.
+        </div>
+    }
+    else
+    {
+        <div class="row g-4">
 
             @foreach (var product in Model)
             {
-                <tr>
+                <div class="col-md-6 col-lg-4">
 
-                    <td>@product.Name</td>
+                    <div class="card h-100 shadow-sm border-0">
 
-                    <td>@product.Description</td>
+                        <div class="card-body">
 
-                    <td>₱@product.Price.ToString("N2")</td>
+                            <div class="d-flex justify-content-between align-items-start mb-3">
 
-                    <td>@product.Category</td>
+                                <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center"
+                                     style="width: 50px; height: 50px; font-size: 20px;">
+                                    @product.Name.Substring(0, 1).ToUpper()
+                                </div>
 
-                    <td>
+                                <span class="badge bg-secondary">
+                                    @product.Category
+                                </span>
 
-                        <a asp-action="Edit"
-                           asp-route-id="@product.Id"
-                           class="btn btn-sm btn-warning">
-                            Edit
-                        </a>
+                            </div>
 
-                        <a asp-action="Delete"
-                           asp-route-id="@product.Id"
-                           class="btn btn-sm btn-danger">
-                            Delete
-                        </a>
+                            <h5 class="card-title fw-bold">
+                                @product.Name
+                            </h5>
 
-                        <a asp-controller="Cart"
-                           asp-action="Add"
-                           asp-route-id="@product.Id"
-                           class="btn btn-sm btn-success">
-                            Add to Cart
-                        </a>
+                            <p class="card-text text-muted">
+                                @product.Description
+                            </p>
 
-                    </td>
+                            <h4 class="text-primary fw-bold mb-3">
+                                ₱@product.Price.ToString("N2")
+                            </h4>
 
-                </tr>
+                        </div>
+
+                        <div class="card-footer bg-white border-0 pt-0 pb-3">
+
+                            <div class="d-grid gap-2">
+
+                                <a asp-controller="Cart"
+                                   asp-action="Add"
+                                   asp-route-id="@product.Id"
+                                   class="btn btn-success">
+                                    Add to Cart
+                                </a>
+
+                                <div class="d-flex gap-2">
+
+                                    <a asp-action="Edit"
+                                       asp-route-id="@product.Id"
+                                       class="btn btn-warning flex-fill">
+                                        Edit
+                                    </a>
+
+                                    <a asp-action="Delete"
+                                       asp-route-id="@product.Id"
+                                       class="btn btn-danger flex-fill">
+                                        Delete
+                                    </a>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
             }
 
-        </tbody>
+        </div>
+    }
 
-    </table>
-}
+</div>

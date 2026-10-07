@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Cauman_Midterm_Store")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a1e89d6622dd22e8d5ef8f2df27ee641ea51f217")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7d684da7dd94512710b89399730b13cfd962a184")]
 [assembly: System.Reflection.AssemblyProductAttribute("Cauman_Midterm_Store")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Cauman_Midterm_Store")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
